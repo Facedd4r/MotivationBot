@@ -21,14 +21,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("Получить мотивашку", callback_data='get_motiv')]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
-    # Используем update.message, если он есть, иначе effective_message
+
     if update.message:
         await update.message.reply_text(
-            "Привет! Я Генератор мотивашек.\nНажми кнопку ниже, чтобы получить мотивационную картинку.",
-            reply_markup=reply_markup
-        )
-    else:
-        await update.effective_message.reply_text(
             "Привет! Я Генератор мотивашек.\nНажми кнопку ниже, чтобы получить мотивационную картинку.",
             reply_markup=reply_markup
         )
